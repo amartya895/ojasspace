@@ -3,16 +3,14 @@ import "./home.css";
 import PostCard from "../components/PostCard";
 import TweetCard from "../components/TweetCard";
 import axios from "axios";
-import userPic from "../images/user.png"
+import userPic from "../images/user.png";
 function Home() {
   const [tweets, setTweets] = useState([]);
 
-  const user = JSON.parse(localStorage.getItem('currentUser'));
-  if(user)
-  {
+  const user = JSON.parse(localStorage.getItem("currentUser"));
+  if (user) {
     var username = user.name;
   }
-  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,7 +18,7 @@ function Home() {
         console.log("Trying to fetch data");
         const data = (
           await axios.get(
-            "/api/tweets/getalltweets" //to use for local development
+            "https://ojasspace-backend.onrender.com/api/tweets/getalltweets" //to use for local development
           )
         ).data;
         console.log("Data fetched successfully");
@@ -62,7 +60,7 @@ function Home() {
           {tweets &&
             tweets.map((tweet, index) => (
               <TweetCard
-                key={index} 
+                key={index}
                 name={tweet.name}
                 date={tweet.date}
                 cmtcount={tweet.commentCount}

@@ -56,7 +56,7 @@ function Login({ closeModal }) {
       try {
         setLoader(true);
         const result = await axios.post(
-          "/api/users/login",
+          "https://ojasspace-backend.onrender.com/api/users/login",
           userData
         );
 

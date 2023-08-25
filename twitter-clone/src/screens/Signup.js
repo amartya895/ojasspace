@@ -67,11 +67,11 @@ function Signup({ closeModalSignup }) {
       try {
         setLoader(true);
         await axios.post(
-          "/api/users/signup",
+          "https://ojasspace-backend.onrender.com/api/users/signup",
           userData
         );
         const result = await axios.post(
-          "/api/users/login",
+          "https://ojasspace-backend.onrender.com/api/users/login",
           { email, password }
         );
 

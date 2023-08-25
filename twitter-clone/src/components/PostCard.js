@@ -18,14 +18,17 @@ function PostCard() {
   const handlePost = async () => {
     setPostDescription("");
     const tweetData = {
-      userid :userid,
+      userid: userid,
       name: name,
       postDescription: postDescription,
       date: currentDate.toISOString(),
       pic: "https://th-i.thgim.com/public/sci-tech/science/dheof9/article28415547.ece/alternates/FREE_1200/Vikram",
     };
     try {
-      const res = await axios.post("/api/tweets/create_tweet", tweetData);
+      const res = await axios.post(
+        "https://ojasspace-backend.onrender.com/api/tweets/create_tweet",
+        tweetData
+      );
       console.log(res);
       window.location.href = "/";
     } catch (error) {
