@@ -10,7 +10,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 
-const allowedOrigins = ['https://ojasspace-amartya895.vercel.app/'];
+const allowedOrigins = ['https://ojasspace-amartya895.vercel.app'];
 app.use(cors({
   origin: function(origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
@@ -19,7 +19,7 @@ app.use(cors({
       callback(new Error('Not allowed by CORS'));
     }
   },
-  credentials: true 
+  credentials: true  // if needed
 }));
 
 app.use(express.json());
