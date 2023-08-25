@@ -10,14 +10,17 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 
-app.use(
-  cors({
-    origin: "https://ojasspace.vercel.app/",
-   
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
+const allowedOrigins = ['https://ojasspace.vercel.app'];
+app.use(cors({
+  origin: function(origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true 
+}));
 
 app.use(express.json());
 
